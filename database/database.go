@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/spf13/viper"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -11,11 +12,11 @@ import (
 var GlobalDB *gorm.DB
 
 func InitDatabase() (err error) {
-	USER := "root"
-	PASS := ""
-	HOST := "localhost"
-	PORT := "3306"
-	DBNAME := "edesa-go"
+	USER := viper.Get("DATABASE_USERNAME")
+	PASS := viper.Get("DATABASE_PASSWORD")
+	HOST := viper.Get("DATABASE_HOST")
+	PORT := viper.Get("DATABASE_PORT")
+	DBNAME := viper.Get("DATABASE_NAME")
 
 	url := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", USER, PASS, HOST, PORT, DBNAME)
 	GlobalDB, err = gorm.Open(mysql.Open(url), &gorm.Config{})

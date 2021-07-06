@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 
 	"github.com/gin-gonic/gin"
@@ -8,7 +9,20 @@ import (
 	"github.com/kholid74/desaku-auth/database"
 	"github.com/kholid74/desaku-auth/middleware"
 	"github.com/kholid74/desaku-auth/models"
+	"github.com/spf13/viper"
 )
+
+func init() {
+	viper.SetConfigFile(`.env`)
+	err := viper.ReadInConfig()
+	if err != nil {
+		panic(err)
+	}
+
+	if viper.GetBool(`debug`) {
+		fmt.Println("Service RUN on DEBUG mode")
+	}
+}
 
 func setupRouter() *gin.Engine {
 	r := gin.Default()
@@ -44,5 +58,5 @@ func main() {
 	database.GlobalDB.AutoMigrate(&models.User{}, &models.Penduduk{})
 
 	r := setupRouter()
-	r.Run(":8080")
+	r.Run(":" + viper.GetString("APP_PORT"))
 }
