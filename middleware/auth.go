@@ -4,7 +4,7 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
-	"github.com/kholid74/golang/jwt-go/auth"
+	"github.com/kholid74/desaku-auth/auth"
 )
 
 // Authz validates token and authorizes users

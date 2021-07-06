@@ -4,9 +4,9 @@ import (
 	"log"
 
 	"github.com/gin-gonic/gin"
-	"github.com/kholid74/golang/jwt-go/auth"
-	"github.com/kholid74/golang/jwt-go/database"
-	"github.com/kholid74/golang/jwt-go/models"
+	"github.com/kholid74/desaku-auth/auth"
+	"github.com/kholid74/desaku-auth/database"
+	"github.com/kholid74/desaku-auth/models"
 	"gorm.io/gorm"
 )
 

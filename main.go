@@ -4,10 +4,10 @@ import (
 	"log"
 
 	"github.com/gin-gonic/gin"
-	"github.com/kholid74/golang/jwt-go/controllers"
-	"github.com/kholid74/golang/jwt-go/database"
-	"github.com/kholid74/golang/jwt-go/middleware"
-	"github.com/kholid74/golang/jwt-go/models"
+	"github.com/kholid74/desaku-auth/controllers"
+	"github.com/kholid74/desaku-auth/database"
+	"github.com/kholid74/desaku-auth/middleware"
+	"github.com/kholid74/desaku-auth/models"
 )
 
 func setupRouter() *gin.Engine {

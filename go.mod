@@ -1,4 +1,4 @@
-module github.com/kholid74/golang/jwt-go
+module github.com/kholid74/desaku-auth
 
 go 1.16
 
